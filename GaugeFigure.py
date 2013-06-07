@@ -59,8 +59,7 @@ class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
     def __init__(self, win, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
-        '''Set up the gauge figure ellipse + normal'''
-        
+        '''Set up the gauge figure ellipse + normal'''     
         # raw stuff
         self.myWin = win
 
@@ -71,25 +70,12 @@ class GaugeFigure(object):
 
         # for tracking
         self.origin = origin
-        self.mouseOrigin = [0, 0]
+        self.mouseOrigin = (0, 0)
 
         # for converting to useful numbers
         self.theta = 0   # tilt
         self.phi = 0     # slant
         self.rotmat = np.identity(3)
-
-        # psychopy shape stim
-        self.ellipse = visual.ShapeStim(win=self.myWin,
-            lineColor='red',
-            lineWidth=thickness,   #in pixels
-            fillColor=None,
-            #vertices=sqrVertices,
-            closeShape=True,
-            pos= [0, 0],
-            ori=0,
-            interpolate=True,
-            opacity=1.0,
-            autoLog=False)
 
         # make a set of vertices, circle of radius radius
         d = np.pi*2 / self.edges
@@ -98,11 +84,36 @@ class GaugeFigure(object):
             for e in xrange(self.edges)
         ])
 
-        # set the verticies to the x,y of the ev
-        self.ellipse.setVertices(list(self.ev[:, [0, 1]]), log=False)
+        # psychopy shape stim
+        self.ellipse = visual.ShapeStim(
+            win=self.myWin,
+            lineColor='red',
+            lineWidth=thickness,
+            fillColor=None,
+            #vertices=list(self.ev),
+            closeShape=True,
+            pos=self.origin,
+            ori=0,
+            interpolate=True,
+            opacity=0.8,
+            autoLog=False)
 
         # the 'tack'
-        self.tv = np.asarray([[0, 0, 0], [0, 0, self.radius]])
+        self.tv = np.asarray([(0, 0, 0), (0, 0, self.radius)])
+
+        # psychopy shape stim
+        self.tack = visual.ShapeStim(
+            win=self.myWin,
+            lineColor='red',
+            lineWidth=thickness,
+            fillColor=None,
+            #vertices=list(self.tv),
+            closeShape=False,
+            pos=self.origin,
+            ori=0,
+            interpolate=True,
+            opacity=0.8,
+            autoLog=False)
 
         return
 
@@ -112,35 +123,39 @@ class GaugeFigure(object):
     def handleMouseDown(self):
         ''' track the mouse as the button is down and set slant/tilt'''
         self.mouseOrigin = myMouse.getPos()
+
         while myMouse.getPressed()[0] is 1:
             self.mouseToSlantTilt(myMouse.getPos())
             self.draw()
             self.myWin.flip()
 
-        return (self.phi, self.theta)
+        return
 
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
         dx, dy = dmouse - self.mouseOrigin
-        # print(dx, dy)
 
-        self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0) / self.phigain
+        self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0)    # / self.phigain
         if self.phi > np.pi / 2:     # slant is limited to pointing perpedendicular to the screen.
             self.phi = np.pi / 2
 
-        self.theta = np.arctan2(dy / 2.0, dx / 2.0)
+        self.theta = np.arctan2(dy / 2.0, -dx / 2.0)
 
-        self.rotmat = np.dot(rotationVecToMat(np.array([0, 0, 1]), np.pi / 4.0),
-                          rotationVecToMat(np.array([0, 1, 0]), np.pi / 8.0))
-        print(self.rotmat)
+        self.rotmat = np.dot(rotationVecToMat(np.array([0, 1, 0]), self.phi),
+                             rotationVecToMat(np.array([0, 0, 1]), self.theta))
+
+        #rint(self.theta, self.phi)
         return
 
     def draw(self):
         '''draw me'''
-        newdl = np.dot(self.rotmat, self.ev)
-        self.ellipse.setVertices(self.newdl[:, (0, 1)])
+        newev = np.dot(self.ev, self.rotmat)
+        self.ellipse.setVertices(list(newev[:, (0, 1)]))
+        newtv = np.dot(self.tv, self.rotmat)
+        self.tack.setVertices(list(newtv[:, (0, 1)]))
 
         self.ellipse.draw()
+        self.tack.draw()
         return
 
     def get_state(self):
@@ -156,27 +171,26 @@ if __name__ == '__main__':
 
     print("go!")
 
-    myWin = visual.Window([600, 600], monitor='testMonitor', units='norm')
+    myWin = visual.Window([600, 600], monitor='testMonitor', units='cm')
 
     myMouse = event.Mouse(win=myWin)
 
-    daG = GaugeFigure(myWin)
+    daG = GaugeFigure(myWin, origin=[2,2])
 
     clock = core.Clock()
     while True:
+
         for key in event.getKeys():
             if key in ['escape', 'q']:
+                print('done')
                 core.quit()
 
         daG.draw()
         myWin.flip()
 
         if myMouse.getPressed()[0] is 1:
-            print(daG.handleMouseDown())
+            daG.handleMouseDown()
         else:
             continue
 
-
-    print('done')
 # end
-    
