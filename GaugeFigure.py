@@ -58,7 +58,7 @@ class GaugeException(Exception):
 class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
-    def __init__(self, win, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
+    def __init__(self, win, mouse, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
         '''Set up the gauge figure ellipse + normal'''     
         # raw stuff
         self.myWin = win
@@ -71,7 +71,8 @@ class GaugeFigure(object):
         # for tracking
         self.origin = origin
         self.mouseOrigin = (0, 0)
-
+        self.myMouse = mouse
+        
         # for converting to useful numbers
         self.theta = 0   # tilt
         self.phi = 0     # slant
@@ -129,22 +130,21 @@ class GaugeFigure(object):
             self.draw()
             self.myWin.flip()
 
-        return
+        return (self.theta, self.phi)
 
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
         dx, dy = dmouse - self.mouseOrigin
 
         self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0)    # / self.phigain
-        if self.phi > np.pi / 2:     # slant is limited to pointing perpedendicular to the screen.
-            self.phi = np.pi / 2
+        if self.phi > np.pi / 2.0:     # slant is limited to pointing perpedendicular to the screen.
+            self.phi = np.pi / 2.0
 
         self.theta = np.arctan2(dy / 2.0, -dx / 2.0)
 
         self.rotmat = np.dot(rotationVecToMat(np.array([0, 1, 0]), self.phi),
                              rotationVecToMat(np.array([0, 0, 1]), self.theta))
 
-        #rint(self.theta, self.phi)
         return
 
     def draw(self):
@@ -175,7 +175,7 @@ if __name__ == '__main__':
 
     myMouse = event.Mouse(win=myWin)
 
-    daG = GaugeFigure(myWin, origin=[2,2])
+    daG = GaugeFigure(myWin, myMouse)
 
     clock = core.Clock()
     while True:
@@ -189,7 +189,8 @@ if __name__ == '__main__':
         myWin.flip()
 
         if myMouse.getPressed()[0] is 1:
-            daG.handleMouseDown()
+            (theta, phi) = daG.handleMouseDown()
+            print theta, phi
         else:
             continue
 
