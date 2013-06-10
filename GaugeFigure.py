@@ -20,9 +20,8 @@ import numpy as np
 
 #from numpy import sin, cos, tan, arctan2, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray, dot
 from numpy.random import random, randint, normal, shuffle
-
-import scipy as sci
-import scipy.linalg
+#import scipy as sci
+#import scipy.linalg
 
 # utility functions
 
