@@ -19,4 +19,13 @@ import numpy as np
 
 from numpy.random import random, randint, normal, shuffle
 
+import csv
 # pseudo-code for this see experiment.md
+
+def import_text(filename, separator):
+    for line in csv.reader(filter(lambda row: row[0]!='#', open(filename), delimiter=separator, skipinitialspace=True)):
+        if line:
+            yield line
+
+for data in import_text('test.exp', '/'):
+    print (data)
