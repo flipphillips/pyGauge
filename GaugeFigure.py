@@ -18,21 +18,9 @@ from psychopy import visual, core, event
 # things we need to use over and over here for utility
 import numpy as np
 
-#from numpy import sin, cos, tan, arctan2, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray, dot
-<<<<<<< HEAD
-#from numpy.random import random, randint, normal, shuffle
-
-#import scipy as sci
-#import scipy.linalg
-
 # using this to debug pyglet on 64-bit os x
 #import faulthandler
 #faulthandler.enable()
-=======
-from numpy.random import random, randint, normal, shuffle
-#import scipy as sci
-#import scipy.linalg
->>>>>>> 24372b76b8bba9e5a249e4de6c0887e1bf3815d5
 
 # utility functions
 
@@ -69,7 +57,7 @@ class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
     def __init__(self, win, mouse, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
-        '''Set up the gauge figure ellipse + normal'''     
+        '''Set up the gauge figure ellipse + normal'''   
         # raw stuff
         self.myWin = win
         self.myMouse = mouse
@@ -83,7 +71,7 @@ class GaugeFigure(object):
         self.origin = origin
         self.mouseOrigin = (0, 0)
         self.myMouse = mouse
-        
+
         # for converting to useful numbers
         self.theta = 0   # tilt
         self.phi = 0     # slant
@@ -184,12 +172,8 @@ if __name__ == '__main__':
 
     myMouse = event.Mouse(win=myWin)
 
-<<<<<<< HEAD
     # the gague fighre needs a windo and a mouse to function...
     daG = GaugeFigure(myWin, myMouse, origin=[2, 2])
-=======
-    daG = GaugeFigure(myWin, myMouse)
->>>>>>> 24372b76b8bba9e5a249e4de6c0887e1bf3815d5
 
     clock = core.Clock()
     while True:

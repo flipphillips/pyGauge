@@ -1,0 +1,513 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"d",
+				"demo"
+			],
+			[
+				"fix",
+				"fixSpot"
+			],
+			[
+				"if",
+				"ife	if … else"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "GaugeFigure.py",
+			"settings":
+			{
+				"buffer_size": 5413,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/Builds/Enthought32.sublime-build",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"R",
+				"Set Syntax: R"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"broa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"lint",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"xik",
+				"Create Xiki Buffer"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"snippeo",
+				"Snippet: Object Value JS"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Package Control: up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"side",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/flip/Documents/pyGauge/GaugeFigure.py",
+		"/Users/flip/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/911041.txt",
+		"/Users/flip/Desktop/poop.py",
+		"/Users/flip/anaconda/lib/python2.7/site-packages/PsychoPy-1.76.00-py2.7.egg/psychopy/tests/test_all_visual/test_all_stimuli.py",
+		"/Users/flip/Desktop/poo.py",
+		"/Users/flip/Desktop/ppet.md",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Python.sublime-settings",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Builds/Enthought64.sublime-build",
+		"/Users/flip/Dropbox/Apps/NeuroSky Recorder/2013-05-23 06-31-25 EDT.txt",
+		"/Applications/MindWave_Mobile/Videos/Archerylite.mpy",
+		"/Users/flip/Downloads/rpy.py",
+		"/Users/flip/Dropbox/People/Pawan/EEG/SweepVEP/oneFreq.py",
+		"/Users/flip/anacondaXXX/bin/anaconda-launcher",
+		"/Users/flip/.bash_profile",
+		"/Users/flip/bob.dat",
+		"/Users/flip/Dropbox/VSS13/Note Export.enex",
+		"/Users/flip/.ghc/ghci.conf",
+		"/Users/flip/Downloads/script-simulation-bootstrap.r",
+		"/Users/flip/Downloads/pyeeg_v.0.02_r2.py",
+		"/Users/flip/bob.csv",
+		"/Users/flip/Library/Enthought/Canopy_64bit/User/bin/activate",
+		"/Users/flip/Dropbox/People/Pawan/EEG/SweepVEP/SweepVEP.py",
+		"/Users/flip/Dropbox/Rose Compare/compare.py",
+		"/Users/flip/Dropbox/Rose Compare/data/xxx_2013_Apr_07_2012trials.csv",
+		"/Users/flip/Dropbox/Rose Compare/data/fp_2013_Apr_07_1953trials.csv",
+		"/Users/flip/Documents/lme4/www/index.php",
+		"/Users/flip/Dropbox/Rose Compare/dwgs/poo",
+		"/Users/flip/Dropbox/Rose Compare/trials.csv",
+		"/Users/flip/Desktop/Rose Compare/drawing trials.csv",
+		"/Users/flip/Dropbox/People/Pawan/EEG/FlashERP/FlashERP.py",
+		"/Users/flip/Dropbox/People/AFuller/Ummmm",
+		"/Users/flip/Dropbox/Apps/SpanDeX.io/Farley Shape/timestamp.sty",
+		"/Applications/Mendeley Desktop.app/Contents/Resources/citationStyles-1.0/apa.csl",
+		"/Users/flip/Desktop/ages.txt",
+		"/Users/flip/Dropbox/Apps/SpanDeX.io/Moo/ShapeFrom.bib",
+		"/Users/flip/Dropbox/Farley - Peppers and Glavens/R/anova.out",
+		"/usr/local/texlive/2012/texmf-dist/doc/latex/apa6/pseudoTeX/apa6.ptex",
+		"/Users/flip/Dropbox/R Stats/aov.R",
+		"/Users/flip/Dropbox/Cat Scan/catsmooth.xyz",
+		"/Users/flip/Desktop/WiFiDiagnosticReport-20130315-1814/Capture/en0-capture0-redacted.pcap",
+		"/Users/flip/Dropbox/Experiment 41/byobjfreq.csv",
+		"/Users/flip/Dropbox/Apps/SpanDeX.io/Farley Shape/ShapeFrom.bib",
+		"/Users/flip/Dropbox/Experiment 41/bycomplexity.csv",
+		"/Volumes/JFNUSB/FarleyUSB/FlipLabData",
+		"/Users/flip/Dropbox/Experiment 41/kb20HighlightsBCNoMotion.dat",
+		"/Users/flip/Dropbox/Experiment 41/kb20HighlightsOnlyMotion.dat",
+		"/Users/flip/Dropbox/Experiment 41/TR21HighlightsOnlyNoMotion.dat",
+		"/Users/flip/Dropbox/Experiment 41/ap18HapticsActive.dat",
+		"/Users/flip/Dropbox/Experiment 41/ap18HapticsPassive.dat",
+		"/Users/flip/Documents/pbrt-v2/src/Makefile",
+		"/Users/flip/Documents/pbrt-v2/src/shapes/Wavefront.cpp",
+		"/Users/flip/Documents/pbrt-v2/scenes/obj.pbrt",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/Sublimerge/Sublimerge.sublime-settings",
+		"/Users/flip/Desktop/Wavefront/core/api.h",
+		"/Users/flip/Documents/pbrt-v2/src/core/api.h",
+		"/Users/flip/Desktop/Wavefront/core/api.cpp",
+		"/Users/flip/Documents/pbrt-v2/src/core/api.cpp",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/FileDiffs.sublime-settings",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/FileDiffs/FileDiffs.sublime-settings",
+		"/Users/flip/Documents/pbrt-v2/src/core/api.DISTcpp",
+		"/Users/flip/Documents/pbrt-v2/src/shapes/wavefront.cpp",
+		"/Users/flip/Documents/pbrt-v2/src/shapes/trianglemesh.cpp",
+		"/Users/flip/.ipython/profile_default/ipython_config.py",
+		"/Users/flip/Dropbox/python/exploring_r_formula.ipynb",
+		"/Users/flip/Dropbox/Scripts/sorter - magic sorter.scpt",
+		"/Users/flip/Dropbox/R Stats/BEST/BEST1G.R",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/SFTP.sublime-settings",
+		"/Users/flip/Desktop/nengo-30bd36a/User.config",
+		"/Users/flip/bob.nef",
+		"/Users/flip/Dropbox/R Stats/JAGS and BUGS/examples/classic-bugs/ReadMe",
+		"/Users/flip/Desktop/mom.py",
+		"/Users/flip/Dropbox/ThinkGear/socketToMe.py",
+		"/Users/flip/Dropbox/ThinkGear/mindwave.py",
+		"/Users/flip/Downloads/ThinkGear/examples/ThinkGearDemo/ThinkGearDemo.pde",
+		"/Users/flip/Dropbox/People/Kayla/Matlab/experiment.m",
+		"/Users/flip/Dropbox/People/Kayla/Python/GaugeFigure.py",
+		"/Users/flip/Desktop/mindwave.py",
+		"/Users/flip/Dropbox/People/Kayla/Icon",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/Users/flip/.codeintel/config",
+		"/Users/flip/Dropbox/People/Kayla/Python/.codeintel/config",
+		"/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/numeric.py",
+		"/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/function_base.py",
+		"/Users/flip/Dropbox/People/Kayla/.codeintel/config",
+		"/Users/flip/Dropbox/People/Hassan/Experiments/Faces/FaceERP_FS_lastrun.py",
+		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/Emotiv.py",
+		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/example2.xml",
+		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/example1.xml",
+		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/config.xml",
+		"/Users/flip/Downloads/name list.txt",
+		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/FaceObjERP.py",
+		"/Users/flip/Dropbox/People/Pawan/EEG/README.md",
+		"/Users/flip/anaconda/conda-meta/anaconda-launcher-0.0-py27_0.json",
+		"/Users/flip/Dropbox/People/Pawan/EEG/SweepVEP/data/2012_Dec_14_1456_fp_001_eeg.csv",
+		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/stims.csv",
+		"/Users/flip/Dropbox/People/Pawan/EEG/stims.csv",
+		"/Users/flip/Desktop/sublimestuff.md",
+		"/Users/flip/Dropbox/People/Pawan/EEG/prakashEEG.sublime-project",
+		"/Users/flip/Dropbox/Sync/Sublime Text 2/Packages/User/Enthought64.sublime-build",
+		"/Users/flip/Desktop/temp.py",
+		"/Users/flip/Support/Sublime",
+		"/Users/flip/Text",
+		"/Users/flip/2/Packages/SideBarEnhancements",
+		"/Users/flip/Library/Application",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Javascript/hello.sublime-snippet",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/AdvancedNewFile/README.md",
+		"/Users/flip/Desktop/index.html",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/flip/Desktop/Experiment/face.py",
+		"/Users/flip/Desktop/test.js",
+		"/Users/flip/Desktop/Applications/Dynamica.m",
+		"/Users/flip/Dropbox/Sync/Sublime Text 2/Settings/Session.sublime_session"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mouse",
+			"710",
+			"ps",
+			"grating1",
+			"sfSteps",
+			"grating1",
+			"GratingStim",
+			"monitorDist",
+			"monitorDistance",
+			", ",
+			"8a",
+			",\n",
+			"A.png\\n",
+			"set_marker",
+			"journal",
+			"NK",
+			"	",
+			"\\t",
+			"circle",
+			"ellips",
+			"ellips2",
+			"vrrotvec2mat",
+			"GAUGE",
+			"raise",
+			"Except",
+			"exceptopn",
+			"kane",
+			"(0\\.0,0\\.0,99\\.0,0\\.0)$",
+			"(0\\.0,0\\.0,1\\.0,0\\.0)$",
+			"(0\\.0,0\\.0,0\\.0,0\\.0)$",
+			"!?(0\\.0,0\\.0,0\\.0,0\\.0)$",
+			"(!(0\\.0,0\\.0,0\\.0,0\\.0)$)",
+			"(0\\.0,0\\.0,0\\.0,0\\.0)$",
+			"(!(0\\.0,0\\.0,0\\.0,0\\.0))$",
+			"(?!(0\\.0,0\\.0,0\\.0,0\\.0))$",
+			"(?!0\\.0,0\\.0,0\\.0,0\\.0)$",
+			"^((?!0\\.0,0\\.0,0\\.0,0\\.0))$",
+			"0\\.0,1\\.0,0.0",
+			"0\\.0,1\\.0",
+			"99,",
+			"1,0",
+			"1,",
+			"fixation",
+			"'",
+			"data",
+			"\"",
+			"\"\n\"",
+			"\"",
+			",",
+			"\",\"",
+			"\\t",
+			"sublime"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			",",
+			"",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "GaugeFigure.py",
+					"settings":
+					{
+						"buffer_size": 5413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5034,
+								5034
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2732.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 306.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"SweepVEP/SweepVEP.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true
+}
