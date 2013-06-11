@@ -41,6 +41,14 @@ def doOne(fname):
 
     im = visual.SimpleImageStim(myWin, image=fname)
 
+    # event loop
+    while True:
+        for key in event.getKeys():
+            if key in ['escape', 'q']:
+                print('done')
+                core.quit()
+            elif key in 
+
     im.draw()
     myWin.flip()
 
