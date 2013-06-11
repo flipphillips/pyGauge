@@ -41,16 +41,39 @@ def doOne(fname):
 
     im = visual.SimpleImageStim(myWin, image=fname)
 
+    lines = visual.ShapeStim(
+        myWin,
+        lineColor='red',
+        lineWidth=3.0,  # in pixels
+        fillColor=None,  # beware, with convex shapes fill colors don't work
+        closeShape=True,  # do you want the final vertex to complete a loop with 1st?
+        pos= [0,0],  # the anchor (rotaion and vertices are position with respect to this)
+        interpolate=True,
+        opacity=0.5,
+        autoLog=False)
+
     # event loop
     while True:
-        for key in event.getKeys():
-            if key in ['escape', 'q']:
-                print('done')
-                core.quit()
-            elif key in 
+        if myMouse.getPressed()[0] is 1:
+            outPts.append(myMouse.getPos())
+            event.clearEvents()
+            lines.setVertices(list(outPts))
 
-    im.draw()
-    myWin.flip()
+        for key in event.getKeys():
+            print key
+            if key in ['escape', 'q']:
+                print(str(outPts))
+                core.quit()
+            elif key in ['space', 'enter']:
+                print(str(outPts))
+                return outPts
+            elif key in ['backspace']:
+                print(outPts.pop())
+                lines.setVertices(list(outPts))
+
+        im.draw()
+        lines.draw()
+        myWin.flip()
 
 for stim in stimList:
     doOne(stim)
