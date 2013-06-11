@@ -23,6 +23,9 @@ from numpy.random import random, randint, normal, shuffle
 
 import scipy as sci
 import scipy.linalg
+# using this to debug pyglet on 64-bit os x
+#import faulthandler
+#faulthandler.enable()
 
 # utility functions
 
@@ -58,10 +61,11 @@ class GaugeException(Exception):
 class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
-    def __init__(self, win, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
+    def __init__(self, win, mouse, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
         '''Set up the gauge figure ellipse + normal'''     
         # raw stuff
         self.myWin = win
+        self.myMouse = mouse
 
         self.radius = radius
         self.thickness = thickness
@@ -122,10 +126,10 @@ class GaugeFigure(object):
 
     def handleMouseDown(self):
         ''' track the mouse as the button is down and set slant/tilt'''
-        self.mouseOrigin = myMouse.getPos()
+        self.mouseOrigin = self.myMouse.getPos()
 
-        while myMouse.getPressed()[0] is 1:
-            self.mouseToSlantTilt(myMouse.getPos())
+        while self.myMouse.getPressed()[0] is 1:
+            self.mouseToSlantTilt(self.myMouse.getPos())
             self.draw()
             self.myWin.flip()
 
