@@ -19,6 +19,7 @@ from psychopy import visual, core, event
 import numpy as np
 
 #from numpy import sin, cos, tan, arctan2, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray, dot
+<<<<<<< HEAD
 #from numpy.random import random, randint, normal, shuffle
 
 #import scipy as sci
@@ -27,6 +28,11 @@ import numpy as np
 # using this to debug pyglet on 64-bit os x
 #import faulthandler
 #faulthandler.enable()
+=======
+from numpy.random import random, randint, normal, shuffle
+#import scipy as sci
+#import scipy.linalg
+>>>>>>> 24372b76b8bba9e5a249e4de6c0887e1bf3815d5
 
 # utility functions
 
@@ -76,7 +82,8 @@ class GaugeFigure(object):
         # for tracking
         self.origin = origin
         self.mouseOrigin = (0, 0)
-
+        self.myMouse = mouse
+        
         # for converting to useful numbers
         self.theta = 0   # tilt
         self.phi = 0     # slant
@@ -134,22 +141,21 @@ class GaugeFigure(object):
             self.draw()
             self.myWin.flip()
 
-        return
+        return (self.theta, self.phi)
 
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
         dx, dy = dmouse - self.mouseOrigin
 
         self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0)    # / self.phigain
-        if self.phi > np.pi / 2:     # slant is limited to pointing perpedendicular to the screen.
-            self.phi = np.pi / 2
+        if self.phi > np.pi / 2.0:     # slant is limited to pointing perpedendicular to the screen.
+            self.phi = np.pi / 2.0
 
         self.theta = np.arctan2(dy / 2.0, -dx / 2.0)
 
         self.rotmat = np.dot(rotationVecToMat(np.array([0, 1, 0]), self.phi),
                              rotationVecToMat(np.array([0, 0, 1]), self.theta))
 
-        #rint(self.theta, self.phi)
         return
 
     def draw(self):
@@ -178,8 +184,12 @@ if __name__ == '__main__':
 
     myMouse = event.Mouse(win=myWin)
 
+<<<<<<< HEAD
     # the gague fighre needs a windo and a mouse to function...
     daG = GaugeFigure(myWin, myMouse, origin=[2, 2])
+=======
+    daG = GaugeFigure(myWin, myMouse)
+>>>>>>> 24372b76b8bba9e5a249e4de6c0887e1bf3815d5
 
     clock = core.Clock()
     while True:
@@ -193,7 +203,8 @@ if __name__ == '__main__':
         myWin.flip()
 
         if myMouse.getPressed()[0] is 1:
-            daG.handleMouseDown()
+            (theta, phi) = daG.handleMouseDown()
+            print theta, phi
         else:
             continue
 

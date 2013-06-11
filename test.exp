@@ -1,0 +1,19 @@
+# a test experiment file... your 'reader' or 'parser' should ignore lines 
+# that start with a '#' character or that are '    ' :) blank
+
+# image name
+1.png
+# probe locations
+100 100
+200 100
+100 200
+300 300
+
+# another image name
+2.png
+100 200
+200 100
+300 300
+135 322
+
+# end
