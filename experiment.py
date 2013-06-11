@@ -41,10 +41,6 @@ class CommentedFile:
         while line.startswith(self.commentstring):
             line = self.f.next()
         return line
-    def image(self): 
-        if ".png" in row:
-            self.f.next()
-        return line
     def __iter__(self):
         return self
 
@@ -52,6 +48,14 @@ tsv_file = csv.reader(CommentedFile(open("test.exp", "rb")),
                       delimiter=' ')
                      
 for row in tsv_file:
-    if "png" in row: next(tsv_file)
-    if row:
-        print row 
+    if row != int:
+        next(tsv_file)
+    print row
+    
+#for row in tsv_file:
+#    if row:
+#        print row
+    
+    
+#    if "png" in row: next(tsv_file)
+
