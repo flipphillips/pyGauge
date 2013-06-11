@@ -13,16 +13,17 @@ changelog:
 '''
 
 # psychopy things
-from psychopy import visual, core, event, misc
+from psychopy import visual, core, event
 
 # things we need to use over and over here for utility
 import numpy as np
 
 #from numpy import sin, cos, tan, arctan2, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray, dot
-from numpy.random import random, randint, normal, shuffle
+#from numpy.random import random, randint, normal, shuffle
 
-import scipy as sci
-import scipy.linalg
+#import scipy as sci
+#import scipy.linalg
+
 # using this to debug pyglet on 64-bit os x
 #import faulthandler
 #faulthandler.enable()
@@ -167,11 +168,9 @@ class GaugeFigure(object):
 
 
 if __name__ == '__main__':
-    '''Test Code - 
-    note that, if you're running this via the command line and you're using EPD 
+    '''Test Code -
+    note that, if you're running this via the command line and you're using EPD
     you've gotta make sure you're in 32 bit EPD or the window won't get created.'''
-
-    from psychopy import visual, event
 
     print("go!")
 
@@ -179,7 +178,8 @@ if __name__ == '__main__':
 
     myMouse = event.Mouse(win=myWin)
 
-    daG = GaugeFigure(myWin, origin=[2,2])
+    # the gague fighre needs a windo and a mouse to function...
+    daG = GaugeFigure(myWin, myMouse, origin=[2, 2])
 
     clock = core.Clock()
     while True:
