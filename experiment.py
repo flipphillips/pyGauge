@@ -18,7 +18,7 @@ from psychopy import visual, core, event, misc
 import numpy as np
 
 from numpy.random import random, randint, normal, shuffle
-
+from numpy import genfromtxt
 import csv
 import sys, re
 
@@ -31,6 +31,8 @@ import sys, re
 
 #for data in import_text('test.exp', '/'):
 #    print (data)
+
+
 
 class CommentedFile:
     def __init__(self, f, commentstring="#"):
@@ -53,7 +55,7 @@ for row in tsv_file:
         next(tsv_file)
     if row:
         print row
-        
+#        
 
 
 #for row in tsv_file:
