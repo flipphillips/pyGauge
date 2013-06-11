@@ -47,11 +47,15 @@ class CommentedFile:
 tsv_file = csv.reader(CommentedFile(open("test.exp", "rb")),
                       delimiter=' ')
                      
+
 for row in tsv_file:
     if row != int:
         next(tsv_file)
-    print row
-    
+    if row:
+        print row
+        
+
+
 #for row in tsv_file:
 #    if row:
 #        print row
