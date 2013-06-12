@@ -21,6 +21,7 @@ from numpy.random import random, randint, normal, shuffle
 from numpy import genfromtxt
 import csv
 import sys, re
+import pandas as pd
 
 # pseudo-code for this see experiment.md
 
@@ -46,29 +47,25 @@ class CommentedFile:
     def __iter__(self):
         return self
 
-#tsv_file = csv.reader(CommentedFile(open("File.exp", "rb")), delimiter=',')
-                     
-                     
+tsv = pd.read_csv("File.exp", delimiter=',', names=['co_x','co_y'], header = None, comment = '#')
 
 
-import csv
- 
-datafile = (CommentedFile(open('File.exp')))
-reader = csv.reader(datafile)
-headers = reader.next()
-data = [row for row in reader]
+list1 = df.co_x.to_list()
+list2 = df.co_y.to_list()
 
-for row in reader:
-    if row or any(row) or any(field.split() for field in row):
-        data.append(row)
-
-print data
-
+#VSS = []
 #
+#for row in tsv_file:
+#    if row != int:
+#        next(tsv_file)
+#    if row:
+#        print row
+        
+
 #for row in tsv_file:
 #    if row:
 #        print row
-#        
+    
     
 #    if "png" in row: next(tsv_file)
 
