@@ -18,9 +18,10 @@ from psychopy import visual, core, event, misc
 import numpy as np
 
 from numpy.random import random, randint, normal, shuffle
-from numpy import genfromtxt
 import csv
 import sys, re
+import GaugeFigureDefs
+
 
 # pseudo-code for this see experiment.md
 
@@ -50,19 +51,42 @@ class CommentedFile:
                      
                      
 
+myWin = visual.Window([600, 600], monitor='testMonitor', units='cm')
+
+myMouse = event.Mouse(win=myWin)
 
 import csv
  
 datafile = (CommentedFile(open('File.exp')))
 reader = csv.reader(datafile)
-headers = reader.next()
+header = reader.next()
 data = [row for row in reader]
 
-for row in reader:
-    if row or any(row) or any(field.split() for field in row):
-        data.append(row)
-
+np.random.shuffle(data)
 print data
+
+daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[2, 2])
+
+
+
+def SetAsOrigin(x_cor, y_cor):
+    daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[x_cor, y_cor])
+    
+
+for x in data:
+    SetAsOrigin(range(*data[0]))
+    daG.draw()
+    win.flip()
+
+#
+#for row in reader:
+#    if row:
+#        header = reader.next()
+#        data.append()
+#
+#print data
+
+
 
 #
 #for row in tsv_file:
