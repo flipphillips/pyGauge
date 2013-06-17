@@ -65,18 +65,38 @@ data = [row for row in reader]
 np.random.shuffle(data)
 print data
 
-daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[2, 2])
 
+daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[2, 2])
 
 
 def SetAsOrigin(x_cor, y_cor):
     daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[x_cor, y_cor])
     
 
-for x in data:
-    SetAsOrigin(range(*data[0]))
+
+while len(data) > 0:
+    i, j = data[0]
+    SetAsOrigin(i,j)
+    continue
+    for key in event.getKeys():
+        if key in ['escape', 'q']:
+            print('done')
+            core.quit()
     daG.draw()
-    win.flip()
+    myWin.flip()
+    if myMouse.getPressed()[0] is 1:
+        (theta, phi) = daG.handleMouseDown()
+        print theta, phi
+        if myMouse.getPressed()[0] is 0:
+            del data[0]
+            print data
+    else:
+        continue
+
+#for x in data:
+#    SetAsOrigin(data[0],data[1])
+#    daG.draw()
+#    win.flip()
 
 #
 #for row in reader:
