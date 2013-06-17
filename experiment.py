@@ -23,6 +23,7 @@ import sys, re
 import GaugeFigureDefs
 
 
+
 # pseudo-code for this see experiment.md
 
 #def import_text(filename, separator):
@@ -51,7 +52,7 @@ class CommentedFile:
                      
                      
 
-myWin = visual.Window([600, 600], monitor='testMonitor', units='cm')
+myWin = visual.Window([600, 600], monitor='testMonitor', units='pix')
 
 myMouse = event.Mouse(win=myWin)
 
@@ -65,19 +66,9 @@ data = [row for row in reader]
 np.random.shuffle(data)
 print data
 
-
-daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[2, 2])
-
-
-def SetAsOrigin(x_cor, y_cor):
-    daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[x_cor, y_cor])
-    
-
-
 while len(data) > 0:
     i, j = data[0]
-    SetAsOrigin(i,j)
-    continue
+    daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[i, j])
     for key in event.getKeys():
         if key in ['escape', 'q']:
             print('done')

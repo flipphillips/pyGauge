@@ -41,7 +41,7 @@ class GaugeException(Exception):
 class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
-    def __init__(self, win, mouse, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
+    def __init__(self, win, mouse, origin=[0, 0], radius=50.0, thickness=3, phigain=200, edges=32):
         '''Set up the gauge figure ellipse + normal'''   
         # raw stuff
         self.myWin = win
