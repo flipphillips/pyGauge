@@ -2,3 +2,6 @@
 *.pyo
 *.pyc
 *~
+*.sublime-project
+*.sublime-workspace
+
