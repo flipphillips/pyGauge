@@ -56,7 +56,7 @@ class GaugeException(Exception):
 class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
-    def __init__(self, win, mouse, origin=[0, 0], radius=1.0, thickness=3, phigain=200, edges=32):
+    def __init__(self, win, mouse, origin=[0, 0], radius=30.0, thickness=3, gain=50, edges=32):
         '''Set up the gauge figure ellipse + normal'''   
         # raw stuff
         self.myWin = win
@@ -64,7 +64,7 @@ class GaugeFigure(object):
 
         self.radius = radius
         self.thickness = thickness
-        self.phigain = phigain
+        self.gain = gain
         self.edges = edges
 
         # for tracking
@@ -133,7 +133,7 @@ class GaugeFigure(object):
 
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
-        dx, dy = dmouse - self.mouseOrigin
+        dx, dy = (dmouse - self.mouseOrigin) / float(self.gain)
 
         self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0)    # / self.phigain
         if self.phi > np.pi / 2.0:     # slant is limited to pointing perpedendicular to the screen.
@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
     print("go!")
 
-    myWin = visual.Window([600, 600], monitor='testMonitor', units='cm')
+    myWin = visual.Window([600, 600], monitor='testMonitor', units='pix')
 
     myMouse = event.Mouse(win=myWin)
 

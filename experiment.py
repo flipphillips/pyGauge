@@ -25,16 +25,6 @@ import GaugeFigure
 import csv
 import sys, re
 
-# pseudo-code for this see experiment.md
-
-#def import_text(filename, separator):
-#    for line in csv.reader(filter(lambda row: row[0]!='#', open(filename), delimiter='\t', skipinitialspace=True)):
-#        if line:
-#            yield line
-
-#for data in import_text('test.exp', '/'):
-#    print (data)
-
 class CommentedFile:
     def __init__(self, f, commentstring="#"):
         self.f = f
@@ -46,26 +36,6 @@ class CommentedFile:
         return line
     def __iter__(self):
         return self
-
-tsv_file = csv.reader(CommentedFile(open("test.exp", "rb")),
-                      delimiter=' ')
-                     
-
-for row in tsv_file:
-    if row != int:
-        next(tsv_file)
-    if row:
-        print row
-        
-
-
-#for row in tsv_file:
-#    if row:
-#        print row
-    
-#tsv_file = csv.reader(CommentedFile(open("File.exp", "rb")), delimiter=',')
-                     
-                     
 
 myWin = visual.Window([600, 600], monitor='testMonitor', units='pix')
 
@@ -83,7 +53,7 @@ print data
 
 while len(data) > 0:
     i, j = data[0]
-    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j])
+    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
     for key in event.getKeys():
         if key in ['escape', 'q']:
             print('done')
@@ -98,26 +68,3 @@ while len(data) > 0:
             print data
     else:
         continue
-
-#for x in data:
-#    SetAsOrigin(data[0],data[1])
-#    daG.draw()
-#    win.flip()
-
-#
-#for row in reader:
-#    if row:
-#        header = reader.next()
-#        data.append()
-#
-#print data
-
-
-
-#
-#for row in tsv_file:
-#    if row:
-#        print row
-#       
-#    if "png" in row: next(tsv_file)
-
