@@ -20,9 +20,7 @@ import numpy as np
 from numpy.random import random, randint, normal, shuffle
 import csv
 import sys, re
-import GaugeFigureDefs
-
-
+import GaugeFigure
 
 import csv
 import sys, re
@@ -37,11 +35,6 @@ import sys, re
 #for data in import_text('test.exp', '/'):
 #    print (data)
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> Trial-Handler
 class CommentedFile:
     def __init__(self, f, commentstring="#"):
         self.f = f
@@ -54,7 +47,6 @@ class CommentedFile:
     def __iter__(self):
         return self
 
-<<<<<<< HEAD
 tsv_file = csv.reader(CommentedFile(open("test.exp", "rb")),
                       delimiter=' ')
                      
@@ -71,7 +63,6 @@ for row in tsv_file:
 #    if row:
 #        print row
     
-=======
 #tsv_file = csv.reader(CommentedFile(open("File.exp", "rb")), delimiter=',')
                      
                      
@@ -92,7 +83,7 @@ print data
 
 while len(data) > 0:
     i, j = data[0]
-    daG = GaugeFigureDefs.GaugeFigure(myWin, myMouse, origin=[i, j])
+    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j])
     for key in event.getKeys():
         if key in ['escape', 'q']:
             print('done')
@@ -127,8 +118,6 @@ while len(data) > 0:
 #for row in tsv_file:
 #    if row:
 #        print row
-#        
->>>>>>> Trial-Handler
-    
+#       
 #    if "png" in row: next(tsv_file)
 
