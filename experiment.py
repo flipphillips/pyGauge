@@ -37,7 +37,7 @@ class CommentedFile:
     def __iter__(self):
         return self
 
-myWin = visual.Window([600, 600], monitor='testMonitor', units='pix')
+myWin = visual.Window([1000, 1000], monitor='testMonitor', units='pix')
 
 myMouse = event.Mouse(win=myWin)
 
@@ -51,20 +51,34 @@ data = [row for row in reader]
 np.random.shuffle(data)
 print data
 
+tiltInfo = []
+
+i, j = data[0]
+daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
+
 while len(data) > 0:
-    i, j = data[0]
-    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
     for key in event.getKeys():
         if key in ['escape', 'q']:
             print('done')
             core.quit()
+        if key in ['space', 'enter']:
+            tiltInfo.append((theta, phi))
+            del data[0]
+            i, j = data[0]
+            daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
+            print data
     daG.draw()
     myWin.flip()
     if myMouse.getPressed()[0] is 1:
         (theta, phi) = daG.handleMouseDown()
         print theta, phi
-        if myMouse.getPressed()[0] is 0:
-            del data[0]
-            print data
     else:
         continue
+    for key in event.getKeys():
+        if key in ['space', 'enter']:
+            tiltInfo.append((theta, phi))
+            del data[0]
+            i, j = data[0]
+            daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
+            print data
+           
