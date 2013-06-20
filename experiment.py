@@ -52,6 +52,7 @@ np.random.shuffle(data)
 print data
 
 tiltInfo = []
+coordinates = [data]
 
 i, j = data[0]
 daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
@@ -64,9 +65,17 @@ while len(data) > 0:
         if key in ['space', 'enter']:
             tiltInfo.append((theta, phi))
             del data[0]
-            i, j = data[0]
-            daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
-            print data
+            try:
+                i, j = data[0]
+                daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
+                continue
+            except:
+                with open('pyGaugeExpData.csv', 'rb') as f:
+                    bob=list(csv.reader(f))
+                writer=csv.writer(open('pyGaugeExpData.csv','a'))
+                for row in bob:
+                    writer.writerow(tiltInfo)
+                    core.quit()
     daG.draw()
     myWin.flip()
     if myMouse.getPressed()[0] is 1:
@@ -74,11 +83,17 @@ while len(data) > 0:
         print theta, phi
     else:
         continue
-    for key in event.getKeys():
-        if key in ['space', 'enter']:
-            tiltInfo.append((theta, phi))
-            del data[0]
-            i, j = data[0]
-            daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=50.0)
-            print data
-           
+
+#we want to add this data to a file... both the coordinates ('data') and the phi and theta values that were entered ('tiltInfo'). we want these in
+# the same file. Also, we will never get to this part of the page (breaking out of the loop) because once the list length = 0, it tries to unpack the list
+# and fails and that crashes the program. so we have 2 things to fix right now.
+
+
+#with open('pyGaugeExpData.csv', 'rb') as f:
+    #data=list(csv.reader(f))
+
+#writer=csv.writer(open('pyGaugeExpData.csv','a'))
+#for row in data:
+        #writer.writerow(testList)
+        #print testList
+        #core.quit()
