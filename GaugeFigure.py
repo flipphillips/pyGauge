@@ -8,8 +8,9 @@ flip & kayla @ skidmore
 
 changelog:
 
-26dec12 flip  and we're off-
-29 May 13 kayla fixed the AttributeError that kept it from running successfully
+26dec12 flip    and we're off-
+29May13 kayla   fixed the AttributeError that kept it from running successfully
+22jun13 flip    kriti and flip decided that the event handling can't happen in the class for now
 '''
 
 # psychopy things
@@ -120,6 +121,23 @@ class GaugeFigure(object):
     def __del__(self):
         return
 
+    # These routines are preferred embodiment because they allow the main
+    # experiment program to keep control, e.g. so they can draw at the right time
+    # etc.
+    def startMouseDown(self):
+        '''called by the client to start a mouse down tracking event'''
+        self.mouseOrigin = self.myMouse.getPos()
+
+    def whileMouseDown(self):
+        '''called by the client to update slant/tilt'''
+        self.mouseToSlantTilt(self.myMouse.getPos())
+
+    def stopMouseDown(self):
+        '''retuns the finished stuff'''
+        return (self.theta, self.phi)
+
+    # deprecated self-handling
+    #
     def handleMouseDown(self):
         ''' track the mouse as the button is down and set slant/tilt'''
         self.mouseOrigin = self.myMouse.getPos()
@@ -187,8 +205,26 @@ if __name__ == '__main__':
         myWin.flip()
 
         if myMouse.getPressed()[0] is 1:
-            (theta, phi) = daG.handleMouseDown()
+            # start gague figure
+            daG.startMouseDown()
+
+            # monitor mouse and update
+            while myMouse.getPressed()[0] is 1:
+                daG.whileMouseDown()
+
+                # draw image, say
+                # image.draw()
+
+                # draw gague figure
+                daG.draw()
+
+                # present stim
+                myWin.flip()
+
+            # (theta, phi) = daG.handleMouseDown()
+            (theta, phi) = daG.stopMouseDown()
             print theta, phi
+            
         else:
             continue
 
