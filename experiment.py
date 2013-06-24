@@ -22,8 +22,11 @@ import csv
 import sys, re
 import GaugeFigure
 
-import csv
-import sys, re
+import os
+from glob import glob 
+
+
+
 
 class CommentedFile:
     def __init__(self, f, commentstring="#"):
@@ -41,8 +44,10 @@ myWin = visual.Window([1000, 1000], monitor='testMonitor', units='pix')
 
 myMouse = event.Mouse(win=myWin)
 
-import csv
- 
+stimPic=visual.ImageStim(win=myWin, image='/Users/kriti/Desktop/pyGauge/test/1.png')
+#stimDir = "test"
+#stimList = glob("./"+stimDir+'/*.png')
+
 datafile = (CommentedFile(open('File.exp')))
 reader = csv.reader(datafile)
 header = reader.next()
@@ -65,6 +70,7 @@ if gui.OK:
 else: print 'user cancelled'
 
 while len(data) > 0:
+    stimPic.draw()
     for key in event.getKeys():
         if key in ['escape', 'q']:
             print('done')
