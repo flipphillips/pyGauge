@@ -47,17 +47,21 @@ def doOne(fname):
         lineWidth=3.0,  # in pixels
         fillColor=None,  # beware, with convex shapes fill colors don't work
         closeShape=True,  # do you want the final vertex to complete a loop with 1st?
-        pos= [0,0],  # the anchor (rotaion and vertices are position with respect to this)
+        pos=[0, 0],  # the anchor (rotaion and vertices are position with respect to this)
         interpolate=True,
         opacity=0.5,
         autoLog=False)
 
     # event loop
+    oldpos = (0, 0)
     while True:
         if myMouse.getPressed()[0] is 1:
-            outPts.append(myMouse.getPos())
-            event.clearEvents()
-            lines.setVertices(list(outPts))
+            newpos = myMouse.getPos()
+            if not np.array_equal(newpos, oldpos):
+                outPts.append(newpos)
+                event.clearEvents()
+                lines.setVertices(list(outPts))
+                oldpos = newpos
 
         for key in event.getKeys():
             print key
