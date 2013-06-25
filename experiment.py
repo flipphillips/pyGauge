@@ -48,19 +48,19 @@ myDlg.addField('Initials:')
 myDlg.show()
 if gui.OK:
     thisInfo = myDlg.data
-else: print 'user cancelled'
-with open('pyGaugeOutput.csv', 'rb') as f:
-    bob=list(csv.reader(f))
-writer=csv.writer(open('pyGaugeOutput.csv','a'))
-writer.writerow(thisInfo)
+else: 
+    print 'user cancelled'
+    core.quit()
 
+# create output file
+writer=csv.writer(open('pyGaugeOutput_'+thisInfo[0]+'.csv', 'w'))
 
+# get the input file
 stimDir = "test"
 stimList = glob("./"+stimDir+'/*.png')
 
 for stim in stimList:
     
-
     myWin = visual.Window([1000, 1000], monitor='testMonitor', units='pix')
     myMouse = event.Mouse(win=myWin)
 
@@ -72,51 +72,58 @@ for stim in stimList:
     np.random.shuffle(data)
     print data
     
+    # our data
     tiltInfo = []
-    coordinates = [data]
     
-    i, j = data[0]
-    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=25.0)
-    
-
-    
-    
+    # our things to draw with and stuff
+    daG = GaugeFigure.GaugeFigure(myWin, myMouse, radius=25.0)
     stimPic=visual.ImageStim(win=myWin, image=stim)
-    while len(data) > 0:
-        stimPic.draw()
-        for key in event.getKeys():
-            if key in ['escape', 'q']:
-                print('done')
-                core.quit()
-            if key in ['space', 'enter']:
-                tiltInfo.append((theta, phi, i, j))
-                del data[0]
-                try:
-                    i, j = data[0]
-                    daG = GaugeFigure.GaugeFigure(myWin, myMouse, origin=[i, j], radius=25.0)
-                    continue
-                except:
-                    with open('pyGaugeOutput.csv', 'rb') as f:
-                        bob=list(csv.reader(f))
-                    writer=csv.writer(open('pyGaugeOutput.csv','a'))
-#                    writer.writerow(thisInfo)
-                    writer.writerow(('phi', 'theta', 'x', 'y'))
-                    for row in bob:
-                        writer.writerow(tiltInfo)
-                        continue
-#                        core.quit()
-        daG.draw()
-        myWin.flip()
-        if myMouse.getPressed()[0] is 1:
-            daG.startMouseDown()
-            # monitor mouse and update
-            while myMouse.getPressed()[0] is 1:
-                daG.whileMouseDown()
-                stimPic.draw() #draw image
-                daG.draw()#draw gauge figure
-                myWin.flip()
-                (theta, phi) = daG.stopMouseDown()
-            print theta, phi
-     
-        else:
-            continue 
+    
+    # probe loop
+    for probePos in data:
+        
+        # randomize probe orientation
+        daG.resetSlantTilt()
+        
+        done = False
+        while not done:
+            
+            # set the position of the gague figure and draw everyone
+            daG.setPos(probePos)
+            stimPic.draw()
+            daG.draw()
+            myWin.flip()
+            
+            # first... the key logic
+            for key in event.getKeys():
+                # panic
+                if key in ['escape', 'q']:
+                    print('panic done')
+                    core.quit()
+                    
+                # done with this point
+                if key in ['space', 'enter']:
+                    tiltInfo.append((stim, probePos[0], probePos[1], theta, phi))
+                    done = True
+                        
+            # now, the mouse logic
+            if myMouse.getPressed()[0] is 1:
+                daG.startMouseDown()
+                # monitor mouse and update
+                while myMouse.getPressed()[0] is 1:
+                    daG.whileMouseDown()
+                    stimPic.draw() #draw image
+                    daG.draw()#draw gauge figure
+                    myWin.flip()
+                    (theta, phi) = daG.stopMouseDown()
+                print theta, phi
+            
+
+   
+    # done withi this stim... write the stuff
+    writer.writerow(('stim', 'x', 'y', 'theta', 'phi'))
+    for aRow in tiltInfo:
+        writer.writerow(aRow)
+
+core.quit()
+# and were done

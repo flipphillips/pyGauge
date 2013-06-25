@@ -18,6 +18,7 @@ from psychopy import visual, core, event
 
 # things we need to use over and over here for utility
 import numpy as np
+from numpy.random import random, randint, normal, shuffle, uniform
 
 
 # using this to debug pyglet on 64-bit os x
@@ -150,6 +151,35 @@ class GaugeFigure(object):
 
         return (self.theta, self.phi)
 
+    def setSlantTilt(self, theta, phi):
+        '''set the slant and tilt + sanity check'''
+        
+        if phi > np.pi / 2.0:
+            self.phi = np.pi / 2.0
+        elif phi < 0.0:
+            self.phi = 0.0
+        else:
+            self.phi = phi
+            
+        if theta > 2*np.pi:
+            self.theta = 2*np.pi
+        elif theta < 0:
+            self.theta = 0
+        else:
+            self.theta = theta
+ 
+        self.rotmat = np.dot(rotationVecToMat(np.array([0, 1, 0]), self.phi),
+                             rotationVecToMat(np.array([0, 0, 1]), self.theta))
+        
+        return
+        
+    def resetSlantTilt(self):
+        self.setSlantTilt(0,0)
+        
+    def randomizeSlantTilt(self):
+        '''randomize the slant and tilt - THIS DOESNT REALLY WORK'''
+        self.setSlantTilt(uniform(0,2*np.pi), uniform(0,np.pi/2))
+            
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
         dx, dy = (dmouse - self.mouseOrigin) / float(self.gain)
@@ -165,6 +195,12 @@ class GaugeFigure(object):
 
         return
 
+    def setPos(self, pos):
+        '''Change the position'''
+        self.ellipse.setPos(pos)
+        self.tack.setPos(pos)
+    
+        
     def draw(self):
         '''draw me'''
         newev = np.dot(self.ev, self.rotmat)
