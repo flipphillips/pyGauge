@@ -19,6 +19,7 @@ from psychopy import visual, core, event
 # things we need to use over and over here for utility
 import numpy as np
 
+
 # using this to debug pyglet on 64-bit os x
 # import faulthandler
 # faulthandler.enable()
