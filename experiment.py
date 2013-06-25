@@ -115,11 +115,8 @@ for stim in stimList:
                 stimPic.draw() #draw image
                 daG.draw()#draw gauge figure
                 myWin.flip()
-#            (theta, phi) = daG.handleMouseDown()
                 (theta, phi) = daG.stopMouseDown()
             print theta, phi
      
         else:
             continue 
-
-core.quit()
