@@ -54,6 +54,7 @@ else:
 
 # create output file
 writer=csv.writer(open('pyGaugeOutput_'+thisInfo[0]+'.csv', 'w'))
+writer.writerow(('stim', 'x', 'y', 'theta', 'phi'))
 
 # get the input file
 stimDir = "test"
@@ -121,7 +122,6 @@ for stim in stimList:
 
    
     # done withi this stim... write the stuff
-    writer.writerow(('stim', 'x', 'y', 'theta', 'phi'))
     for aRow in tiltInfo:
         writer.writerow(aRow)
 
