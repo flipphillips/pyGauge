@@ -16,13 +16,9 @@ import GaugeFigure
 import os
 from glob import glob 
 
-reader = csv.reader(open('pyGaugeOutput_okay.csv', 'rU'))
-image1 = []
-image2 = []
-
-
 import pandas
 dataFrame = pandas.read_csv('pyGaugeOutput_okay.csv')
+triangleVertices = pandas.read_csv('faces.txt')
 print dataFrame
 
 print dataFrame.describe()
@@ -54,5 +50,15 @@ print gradients
 
 #relative depth differences in a triangle: between the first vertex and the other two
 relativedepths=[]
-for row_index, row in dataFrame.iterrows():
-    
+x1 = []
+y1 = []
+x2 = []
+y2 = []
+x3 = []
+y3 = []
+gx = []
+gy = []
+relativedepths = []
+
+for row_index, row in triangleVertices.iterrows():
+    x1.append(
