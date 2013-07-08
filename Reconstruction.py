@@ -61,4 +61,7 @@ gy = []
 relativedepths = []
 
 for row_index, row in triangleVertices.iterrows():
-    x1.append(
+    x1.append(columns[0], row['x'])
+    #columns isnt a thing so we need to figure out the way to get this working
+
+print x1
