@@ -65,3 +65,15 @@ for row_index, row in triangleVertices.iterrows():
     #columns isnt a thing so we need to figure out the way to get this working
 
 print x1
+
+
+#can try to use nrows command: it reads a certain number of rows each time. So potentially, set up a loop where each time it reads 3 rows 
+#(3 vertices per triangle) and then begins from the next three rows?
+#pandas usecols command
+
+#also, if you put things into square brackets, panda understands that as one data type: see: 
+#http://stackoverflow.com/questions/12269528/using-python-pandas-to-parse-csv-with-date-in-format-year-day-hour-min-sec
+
+#we can select by column like this:
+#see: http://stackoverflow.com/questions/8916302/selecting-across-multiple-columns-with-python-pandas
+
