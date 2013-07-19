@@ -22,16 +22,7 @@ verticesIndex = pandas.read_csv('faces.txt', header=None, delim_whitespace=True)
 vertices = pandas.read_csv('vertices.txt', header=None, delim_whitespace=True)
 
 print dataFrame
-
 print dataFrame.describe()
-
-#print dataFrame['x']
-
-#print dataFrame[0:2]
-
-#for row_index, row in dataFrame.iterrows():
-    #print (row['x'] + row['y']) / 2.0
-
 
 #convert slant/tilt settings in a normal vector
 normalvectors=[]
@@ -50,44 +41,29 @@ for row_index, row in dataFrame.iterrows():
 print gradients 
 verts = [[0.4,.3], [.6,.7],[.8,.45],[.1,.4]]
 faces=[[1,2,3],[3,3,1],[2,2,2],[1,3,3]]
+#this is the data that we are using until we have a CSV format / file setup
 count = 0
 relativedepths = []
+bob = []
+jennifer = []
 print len(faces)
-for f in range(len(faces)):
-    count = count+1
-    print [verts[faces[f][j]] for j in range(3)]
+for f in range(len(faces)): #loop for calculating depth gradients for triangle sides
+    count = count+1 #used to keep moving through the gradients list later
+    print [verts[faces[f][j]] for j in range(3)] #testing
     fullList = [verts[faces[f][j]] for j in range (3)]
     x1,y1 = fullList[0]
     x2, y2 = fullList[1]
-    x3, y3 = fullList[2]
+    x3, y3 = fullList[2] #assigning variables
     print x1
     for g in range(len(gradients)):
         gx = gradients[count-1]
         gy = gradients[count]
         break
     relativedepths.append(gx*(x2-x1)+gy*(y2-y1))
-    relativedepths.append(gx*(x3-x1)+gy*(y3-y1))
+    relativedepths.append(gx*(x3-x1)+gy*(y3-y1)) #calculating relative depths and appending to list
+    for row in faces: #here we are trying to copy the matlab code with making a list "x" 
+        bob.append(row[0])
+        bob.append(row[1])
+        bob.append(row[0])
+        bob.append(row[1])
 print relativedepths
-    #DO MATH
-    #APPEND MATH
-
-#relative depth differences in a triangle: between the first vertex and the other two
-
-
-#for row_index, row in index.iterrows():
-#    x1.append(columns[0], row['x'])
-    #columns isnt a thing so we need to figure out the way to get this working
-
-#print x1
-
-
-#can try to use nrows command: it reads a certain number of rows each time. So potentially, set up a loop where each time it reads 3 rows 
-#(3 vertices per triangle) and then begins from the next three rows?
-#pandas usecols command
-
-#also, if you put things into square brackets, panda understands that as one data type: see: 
-#http://stackoverflow.com/questions/12269528/using-python-pandas-to-parse-csv-with-date-in-format-year-day-hour-min-sec
-
-#we can select by column like this:
-#see: http://stackoverflow.com/questions/8916302/selecting-across-multiple-columns-with-python-pandas
-
