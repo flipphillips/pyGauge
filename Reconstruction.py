@@ -47,24 +47,32 @@ for row_index, row in dataFrame.iterrows():
     gradients.append(row['y']/row['theta'])
 #we probably want this to print to a CSV and each iteration should be a new row
 #this is because later we want to be able to iterate through each row since they correspond to each triangle
-
-#print gradients
+print gradients 
 verts = [[0.4,.3], [.6,.7],[.8,.45],[.1,.4]]
-faces=[[1,2,3],[3,3,1],[2,2,2]]
-
+faces=[[1,2,3],[3,3,1],[2,2,2],[1,3,3]]
+count = 0
+relativedepths = []
+print len(faces)
 for f in range(len(faces)):
+    count = count+1
     print [verts[faces[f][j]] for j in range(3)]
     fullList = [verts[faces[f][j]] for j in range (3)]
     x1,y1 = fullList[0]
     x2, y2 = fullList[1]
     x3, y3 = fullList[2]
-
-
+    print x1
+    for g in range(len(gradients)):
+        gx = gradients[count-1]
+        gy = gradients[count]
+        break
+    relativedepths.append(gx*(x2-x1)+gy*(y2-y1))
+    relativedepths.append(gx*(x3-x1)+gy*(y3-y1))
+print relativedepths
+    #DO MATH
+    #APPEND MATH
 
 #relative depth differences in a triangle: between the first vertex and the other two
-relativedepths=[]
-gx = []
-gy = []
+
 
 #for row_index, row in index.iterrows():
 #    x1.append(columns[0], row['x'])
