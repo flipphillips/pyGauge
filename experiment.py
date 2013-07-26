@@ -62,12 +62,12 @@ stimList = glob("./"+stimDir+'/*.png')
 
 for stim in stimList:
     
-    myWin = visual.Window([1000, 1000], monitor='testMonitor', units='pix')
+    myWin = visual.Window([1280, 1024], monitor='testMonitor', units='pix')
     myMouse = event.Mouse(win=myWin)
 
-    datafile = (CommentedFile(open('File.exp')))
+    datafile = open("./"+stimDir+'/barycentra.csv')
     reader = csv.reader(datafile)
-    header = reader.next()
+    # header = reader.next()
     data = [row for row in reader]
     
     np.random.shuffle(data)
@@ -85,12 +85,13 @@ for stim in stimList:
         
         # randomize probe orientation
         daG.resetSlantTilt()
+        print map(float,probePos)
         
         done = False
         while not done:
             
             # set the position of the gague figure and draw everyone
-            daG.setPos(probePos)
+            daG.setPos(map(float,probePos))
             stimPic.draw()
             daG.draw()
             myWin.flip()
