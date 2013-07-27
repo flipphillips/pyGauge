@@ -27,7 +27,7 @@ from glob import glob
 
 
 
-#rules about hanshtags and such within the data file that provides coordinates for gauge figures
+#rules about hashtags and such within the data file that provides coordinates for gauge figures
 class CommentedFile:
     def __init__(self, f, commentstring="#"):
         self.f = f
@@ -62,14 +62,14 @@ stimList = glob("./"+stimDir+'/*.png')
 
 for stim in stimList:
     
-    myWin = visual.Window([1280, 1024], monitor='testMonitor', units='pix')
+    myWin = visual.Window([2000, 2000], monitor='testMonitor', units='pix')
     myMouse = event.Mouse(win=myWin)
 
-    datafile = open("./"+stimDir+'/barycentra.csv')
+    datafile = open("./"+stimDir+'/barycentra.csv','U ')
     reader = csv.reader(datafile)
     # header = reader.next()
     data = [row for row in reader]
-    
+
     np.random.shuffle(data)
     print data
     
@@ -85,7 +85,7 @@ for stim in stimList:
         
         # randomize probe orientation
         daG.resetSlantTilt()
-        print map(float,probePos)
+        #print map(float,probePos)
         
         done = False
         while not done:
@@ -106,22 +106,16 @@ for stim in stimList:
                 # done with this point
                 if key in ['space', 'enter']:
                     tiltInfo.append((stim, probePos[0], probePos[1], theta, phi))
+                    print theta, phi
                     done = True
                         
-            # now, the mouse logic
-            if myMouse.getPressed()[0] is 1:
-                daG.startMouseDown()
-                # monitor mouse and update
-                while myMouse.getPressed()[0] is 1:
-                    daG.whileMouseDown()
-                    stimPic.draw() #draw image
-                    daG.draw()#draw gauge figure
-                    myWin.flip()
-                    (theta, phi) = daG.stopMouseDown()
-                print theta, phi
-            
+             #mouse logic
+            daG.whileMouseDown()
+            stimPic.draw() #draw image
+            daG.draw()#draw gauge figure
+            myWin.flip()
+            (theta, phi) = daG.stopMouseDown()
 
-   
     # done withi this stim... write the stuff
     for aRow in tiltInfo:
         writer.writerow(aRow)
