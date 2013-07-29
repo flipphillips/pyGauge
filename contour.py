@@ -31,14 +31,15 @@ stimList = glob("./"+stimDir+'/*.png')
 # ui elements
 myWin = visual.Window([1280, 1024], monitor='testMonitor', units='pix')
 myMouse = event.Mouse(win=myWin)
+myText = visual.TextStim(myWin, text=u"here")
 
 
-def doOne(fname):
+def doOne(fname, outfname):
     '''handle a stimulus'''
 
+    fileName, fileExtension = os.path.splitext(fname)
+
     outPts = []
-    holePts = []
-    ridgePts = []
 
     im = visual.SimpleImageStim(myWin, image=fname)
 
@@ -64,25 +65,39 @@ def doOne(fname):
                 lines.setVertices(list(outPts))
                 oldpos = newpos
 
-                im.draw()
-                lines.draw()
-                myWin.flip()
-
         for key in event.getKeys():
             print key
             if key in ['escape', 'q']:
                 print(str(outPts))
                 core.quit()
-            elif key in ['space', 'enter']:
+
+            elif key in ['space', 'return']:
                 print(str(outPts))
+                ofile = open(fileName+outfname, 'wb')
+                writer = csv.writer(ofile, dialect='excel')
+                for row in outPts:
+                    writer.writerow(row)
+                ofile.close()
+
                 return outPts
+
             elif key in ['backspace']:
                 print(outPts.pop())
                 lines.setVertices(list(outPts))
 
+        im.draw()
+        lines.draw()
+        myWin.flip()
+
 
 for stim in stimList:
-    doOne(stim)
+    myText.setText("Draw Boundary.\n Enter when done.\n Any key to continue.")
+    myText.draw()
+    myWin.flip()
+
+    event.waitKeys()
+
+    doOne(stim, "_border.csv")
 
     while True:
         for key in event.getKeys():
