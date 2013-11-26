@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"getGamma  (function)"
+			],
+			[
+				"have",
+				"havePhotom"
+			],
+			[
 				"d",
 				"demo"
 			],
@@ -19,19 +27,71 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "pyGauge.sublime-project",
+			"settings":
+			{
+				"buffer_size": 218,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/flip/Dropbox/Python/github/popeye/README.md",
+			"settings":
+			{
+				"buffer_size": 161,
+				"line_ending": "Unix"
+			}
+		}
 	],
-	"build_system": "Packages/User/Builds/Python.sublime-build",
+	"build_system": "",
 	"command_palette":
 	{
-		"height": 47.0,
+		"height": 357.0,
 		"selected_items":
 		[
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"Package Control: ",
+				"upda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"goto",
 				"Package Control: Upgrade/Overwrite All Packages"
 			],
 			[
@@ -67,10 +127,6 @@
 				"Create Xiki Buffer"
 			],
 			[
-				"in",
-				"Package Control: Install Package"
-			],
-			[
 				"snippeo",
 				"Snippet: Object Value JS"
 			],
@@ -87,11 +143,19 @@
 				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 602.0
+		"width": 453.0
 	},
 	"console":
 	{
-		"height": 146.0
+		"height": 476.0,
+		"history":
+		[
+			"sublime.version()",
+			"sublime.platform()",
+			"sublime.arch()",
+			"arch()",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
 	},
 	"distraction_free":
 	{
@@ -104,9 +168,53 @@
 	},
 	"file_history":
 	[
+		"/Users/flip/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/Users/flip/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/flip/Dropbox/FaceFiltering/facefilter.py",
+		"/Users/flip/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/Users/flip/Library/Application Support/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
+		"/Users/flip/Dropbox/Python/github/pyGauge/experiment.py",
+		"/Users/flip/Dropbox/Python/github/pyGauge/GaugeFigure.py",
+		"/Users/flip/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/visual/shape.py",
+		"/Users/flip/Dropbox/Python/github/pyGauge/contour.py",
+		"/Users/flip/Dropbox/Classes/325-Perception/Labs/Staircase/psychophysicsStairsInterleaved DEMO/stairDefinitions.csv",
+		"/Users/flip/Desktop/stuff",
+		"/Users/flip/Downloads/coreutils-8.21/src/ls.c",
+		"/Users/flip/Desktop/bob",
+		"/Users/flip/.bash_profile",
+		"/Volumes/Big Data/Dropbox/Sync/rc/bash_profile",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Settings/License.sublime_license",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/Big Data/Dropbox/Experiment 62/Experiment62.py",
+		"/Users/flip/Library/Application Support/Sublime Text 2/Settings/Session.sublime_session",
+		"/Volumes/Big Data/Dropbox/Experiment 62/Experiment/Experiment62 copy.py",
+		"/Volumes/Big Data/Dropbox/Fencing/Experiments/E1/data/akm_Apr_14_1711.ari",
+		"/Volumes/Big Data/Dropbox/Scripts/bash_profile",
+		"/Users/flip/Desktop/dualpend.py",
+		"/Volumes/Big Data/Dropbox/People/Pawan/EEG/SweepVEP/SweepVEP-Orig.py",
+		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/monitors/calibTools.py",
+		"/Volumes/Big Data/Dropbox/python/github/psychopy/psychopy/monitors/MonitorCenter.py",
+		"/Users/flip/Desktop/assts",
+		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/event.py",
+		"/Volumes/Big Data/Dropbox/python/github/psychopy/psychopy/app/builder/builder.py",
+		"/Volumes/Big Data/Dropbox/python/github/psychopy/psychopy/gui.py",
+		"/Volumes/Big Data/Dropbox/python/github/psychopy/.git/MERGE_MSG",
+		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/monitors/MonitorCenter.py",
+		"/Users/flip/Dropbox/Python/github/psychopy/MANIFEST.in",
+		"/Volumes/Big Data/Dropbox/People/Pawan/EEG/SweepVEP/SweepVEP.py",
+		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/visual.py",
+		"/Users/flip/Desktop/sweep.dat",
+		"/Users/flip/Desktop/ted",
+		"/Applications/Pixar/RenderManProServer-18.0/etc/rendermn.ini",
+		"/Volumes/Groups/perception/NS101 PsychoPy/Emotiv/Emotiv.sublime-workspace",
+		"/Volumes/Big Data/Dropbox/python/github/pyGauge/test/vertices.csv",
+		"/Volumes/Big Data/Dropbox/python/github/pyGauge/test/faces.csv",
+		"/Applications/PsychoPy2.app/Contents/Resources/lib/python2.7/psychopy/visual.py",
+		"/Volumes/Big Data/Dropbox/Dave Muzaq/2_2013_Jul_15_1235.ari",
+		"/Users/flip/Library/Mathematica/FrontEnd/init.m",
 		"/Users/flip/Dropbox/Python/github/psychopy/psychopy/demos/coder/timing/timeByFrames.py",
 		"/Users/flip/Documents/pyGauge/contour.py",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/flip/Documents/pyGauge/GaugeFigure.py",
 		"/Users/flip/Documents/pyGauge/pyGauge.sublime-project",
 		"/Users/flip/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/911041.txt",
@@ -121,7 +229,6 @@
 		"/Users/flip/Downloads/rpy.py",
 		"/Users/flip/Dropbox/People/Pawan/EEG/SweepVEP/oneFreq.py",
 		"/Users/flip/anacondaXXX/bin/anaconda-launcher",
-		"/Users/flip/.bash_profile",
 		"/Users/flip/bob.dat",
 		"/Users/flip/Dropbox/VSS13/Note Export.enex",
 		"/Users/flip/.ghc/ghci.conf",
@@ -188,40 +295,7 @@
 		"/Users/flip/Dropbox/People/Kayla/Icon",
 		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
 		"/Users/flip/.codeintel/config",
-		"/Users/flip/Dropbox/People/Kayla/Python/.codeintel/config",
-		"/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/numeric.py",
-		"/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/function_base.py",
-		"/Users/flip/Dropbox/People/Kayla/.codeintel/config",
-		"/Users/flip/Dropbox/People/Hassan/Experiments/Faces/FaceERP_FS_lastrun.py",
-		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/Emotiv.py",
-		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/example2.xml",
-		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/example1.xml",
-		"/Users/flip/Desktop/3d-hawk_layout_build.app/Contents/config.xml",
-		"/Users/flip/Downloads/name list.txt",
-		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/FaceObjERP.py",
-		"/Users/flip/Dropbox/People/Pawan/EEG/README.md",
-		"/Users/flip/anaconda/conda-meta/anaconda-launcher-0.0-py27_0.json",
-		"/Users/flip/Dropbox/People/Pawan/EEG/SweepVEP/data/2012_Dec_14_1456_fp_001_eeg.csv",
-		"/Users/flip/Dropbox/People/Pawan/EEG/FaceObjERP/stims.csv",
-		"/Users/flip/Dropbox/People/Pawan/EEG/stims.csv",
-		"/Users/flip/Desktop/sublimestuff.md",
-		"/Users/flip/Dropbox/People/Pawan/EEG/prakashEEG.sublime-project",
-		"/Users/flip/Dropbox/Sync/Sublime Text 2/Packages/User/Enthought64.sublime-build",
-		"/Users/flip/Desktop/temp.py",
-		"/Users/flip/Support/Sublime",
-		"/Users/flip/Text",
-		"/Users/flip/2/Packages/SideBarEnhancements",
-		"/Users/flip/Library/Application",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Javascript/hello.sublime-snippet",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/AdvancedNewFile/README.md",
-		"/Users/flip/Desktop/index.html",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/flip/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
-		"/Users/flip/Desktop/Experiment/face.py",
-		"/Users/flip/Desktop/test.js",
-		"/Users/flip/Desktop/Applications/Dynamica.m",
-		"/Users/flip/Dropbox/Sync/Sublime Text 2/Settings/Session.sublime_session"
+		"/Users/flip/Dropbox/People/Kayla/Python/.codeintel/config"
 	],
 	"find":
 	{
@@ -232,6 +306,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/Volumes/Big Data/Dropbox/python/github/psychopy"
 		]
 	},
 	"find_state":
@@ -239,6 +314,55 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\t",
+			" ",
+			"print",
+			"	",
+			"myMon",
+			"autoMode",
+			"semi",
+			"onMethodChange",
+			"semi",
+			"dogammafits",
+			"semi",
+			"makeCalibBox",
+			"wx.Dialog",
+			"makeCalibBox",
+			"makeCalibBox\n\n\nmakeCalibBox\n",
+			"makeCalibBox\n\n\n",
+			"MainFrame",
+			"makeCalibBox",
+			"wx.BoxSizer",
+			"SetSizerAndFit",
+			"gammaGrid",
+			"SimpleGrid",
+			"wx.StaticText",
+			"photometer.type",
+			"):\n",
+			"label",
+			"inputLabel",
+			"semi",
+			"wx.Dialog",
+			"GammaLumValsDlg",
+			"GammaLumValsDlg\n\n\nGammaLumValsDlg",
+			"psychopy-dev@googlegroups.com",
+			"semi",
+			"getLumSeries",
+			"GammaLumValsDlg",
+			"wx.BoxSizer",
+			"GammaLumValsDlg",
+			"inputDlg = GammaLumValsDlg(lumLevels, parent=self)\n\n\n\n\n\n",
+			"photometer",
+			"photometer.type",
+			"meterType",
+			"LS100",
+			"photometer.type",
+			"photometer",
+			"NoneType",
+			" ",
+			"\\+",
+			"+",
+			"if im.mode",
 			"mouse",
 			"710",
 			"ps",
@@ -298,11 +422,12 @@
 		"regex": true,
 		"replace_history":
 		[
+			"makeCalibBox",
 			",",
 			"",
 			"'"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -311,8 +436,70 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "pyGauge.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								218,
+								218
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/flip/Dropbox/Python/github/popeye/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Markdown/MultiMarkdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -347,14 +534,23 @@
 		]
 	},
 	"menu_visible": true,
+	"output.anaconda_documentation":
+	{
+		"height": 168.0
+	},
 	"output.exec":
 	{
-		"height": 306.0
+		"height": 194.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
 	},
 	"output.sftp":
 	{
 		"height": 0.0
 	},
+	"project": "pyGauge.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -374,16 +570,30 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+		],
+		"width": 378.0
+	},
+	"settings":
+	{
 	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 214.0,
-	"status_bar_visible": true
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

@@ -5,3 +5,5 @@
 *.sublime-project
 *.sublime-workspace
 
+test/1.png
+test/2.png

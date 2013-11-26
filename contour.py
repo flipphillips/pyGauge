@@ -12,7 +12,7 @@ changelog:
 '''
 
 # psychopy things
-from psychopy import visual, core, event, misc
+from psychopy import visual, core, event
 
 # things we need to use over and over here for utility
 import numpy as np
@@ -34,6 +34,34 @@ myMouse = event.Mouse(win=myWin)
 myText = visual.TextStim(myWin, text=u"here")
 
 
+class GaugeContour(object):
+    '''GaugeContour - contour class for dealing with the gauge figure'''
+
+    def __init__(self, win, mouse, imageFileName, thickness=3,
+                 lineColor='green', dotColor='blue'):
+        '''Set up the gauge figure ellipse + normal'''
+
+        # raw stuff
+        self.win = win
+        self.mouse = mouse
+        self.thickness = thickness
+        self.lineColor = lineColor
+        self.dotColor = dotColor
+        self.drawDots = True
+
+        # image
+        self.image = visual.SimpleImageStim(self.win, image=imageFileName)
+
+        # line stim
+        self.lines = visual.ShapeStim(self.win,
+                                      lineColor=self.lineColor,
+                                      lineWidth=self.thickness,
+                                      fillColor=None, closeShape=False,
+                                      opacity=0.75, autoLog=True)
+        #
+        self.points = []
+
+
 def doOne(fname, outfname):
     '''handle a stimulus'''
 
@@ -47,9 +75,9 @@ def doOne(fname, outfname):
         myWin,
         lineColor='red',
         lineWidth=3.0,  # in pixels
-        fillColor=None,  # beware, with convex shapes fill colors don't work
-        closeShape=False,  # do you want the final vertex to complete a loop with 1st?
-        pos=[0, 0],  # the anchor (rotaion and vertices are position with respect to this)
+        fillColor=None,
+        closeShape=False,
+        pos=[0, 0],
         interpolate=True,
         opacity=0.5,
         autoLog=False)

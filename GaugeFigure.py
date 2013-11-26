@@ -10,7 +10,8 @@ changelog:
 
 26dec12 flip    and we're off-
 29May13 kayla   fixed the AttributeError that kept it from running successfully
-22jun13 flip    kriti and flip decided that the event handling can't happen in the class for now
+22jun13 flip    kriti and flip decided that the event handling can't
+                happen in the class for now
 '''
 
 # psychopy things
@@ -30,7 +31,8 @@ from numpy.random import random, randint, normal, shuffle, uniform
 
 def rotationVecToMat(vec, theta):
     ''' create rotation matrix as per MATLAB's vrrotvec2mat.
-        create a matrix that will rotate theta degrees about the axis defined by vec
+        create a matrix that will rotate theta degrees about the axis
+        defined by vec
     '''
     s = np.sin(theta)
     c = np.cos(theta)
@@ -59,8 +61,9 @@ class GaugeException(Exception):
 class GaugeFigure(object):
     '''GaugeFigure - class for dealing with the gauge figure'''
 
-    def __init__(self, win, mouse, origin=[0, 0], radius=30.0, thickness=3, gain=50, edges=32):
-        '''Set up the gauge figure ellipse + normal'''   
+    def __init__(self, win, mouse, origin=[0, 0], radius=30.0,
+                 thickness=3, gain=50, edges=32):
+        '''Set up the gauge figure ellipse + normal'''
         # raw stuff
         self.myWin = win
         self.myMouse = mouse
@@ -93,7 +96,7 @@ class GaugeFigure(object):
             lineColor='red',
             lineWidth=thickness,
             fillColor=None,
-            #vertices=list(self.ev),
+            vertices=self.ev[:, 0:2].tolist(),
             closeShape=True,
             pos=self.origin,
             ori=0,
@@ -110,7 +113,7 @@ class GaugeFigure(object):
             lineColor='red',
             lineWidth=thickness,
             fillColor=None,
-            #vertices=list(self.tv),
+            vertices=self.tv[:, 0:2].tolist(),
             closeShape=False,
             pos=self.origin,
             ori=0,
@@ -124,8 +127,9 @@ class GaugeFigure(object):
         return
 
     # These routines are preferred embodiment because they allow the main
-    # experiment program to keep control, e.g. so they can draw at the right time
-    # etc.
+    # experiment program to keep control, e.g. so they can draw at the
+    # right time etc.
+
     def startMouseDown(self):
         '''called by the client to start a mouse down tracking event'''
         self.mouseOrigin = self.myMouse.getPos()
@@ -153,39 +157,40 @@ class GaugeFigure(object):
 
     def setSlantTilt(self, theta, phi):
         '''set the slant and tilt + sanity check'''
-        
+
         if phi > np.pi / 2.0:
             self.phi = np.pi / 2.0
         elif phi < 0.0:
             self.phi = 0.0
         else:
             self.phi = phi
-            
+
         if theta > 2*np.pi:
             self.theta = 2*np.pi
         elif theta < 0:
             self.theta = 0
         else:
             self.theta = theta
- 
+
         self.rotmat = np.dot(rotationVecToMat(np.array([0, 1, 0]), self.phi),
                              rotationVecToMat(np.array([0, 0, 1]), self.theta))
-        
+
         return
-        
+
     def resetSlantTilt(self):
-        self.setSlantTilt(0,0)
-        
+        self.setSlantTilt(0, 0)
+
     def randomizeSlantTilt(self):
         '''randomize the slant and tilt - THIS DOESNT REALLY WORK'''
-        self.setSlantTilt(uniform(0,2*np.pi), uniform(0,np.pi/2))
-            
+        self.setSlantTilt(uniform(0, 2*np.pi), uniform(0, np.pi/2))
+
     def mouseToSlantTilt(self, dmouse):
         '''calculate the slant and tilt from the mouse location'''
         dx, dy = (dmouse - self.mouseOrigin) / float(self.gain)
 
         self.phi = np.sqrt(dx ** 2.0 + dy ** 2.0)    # / self.phigain
-        if self.phi > np.pi / 2.0:     # slant is limited to pointing perpedendicular to the screen.
+        if self.phi > np.pi / 2.0:     # slant is limited to pointing
+                                       # perpedendicular to the screen.
             self.phi = np.pi / 2.0
 
         self.theta = np.arctan2(dy / 2.0, -dx / 2.0)
@@ -199,8 +204,7 @@ class GaugeFigure(object):
         '''Change the position'''
         self.ellipse.setPos(pos)
         self.tack.setPos(pos)
-    
-        
+
     def draw(self):
         '''draw me'''
         newev = np.dot(self.ev, self.rotmat)
@@ -219,12 +223,15 @@ class GaugeFigure(object):
 if __name__ == '__main__':
     '''Test Code -
     note that, if you're running this via the command line and you're using EPD
-    you've gotta make sure you're in 32 bit EPD or the window won't get created.'''
+    you've gotta make sure you're in 32 bit EPD or the window won't get
+    created.'''
+
+    #from skimage import io
 
     print("go!")
 
     myWin = visual.Window([600, 600], monitor='testMonitor', units='pix')
-
+    myImg = visual.ImageStim(win=myWin, image='test/2.png')
     myMouse = event.Mouse(win=myWin)
 
     # the gague fighre needs a windo and a mouse to function...
@@ -238,6 +245,7 @@ if __name__ == '__main__':
                 print('done')
                 core.quit()
 
+        myImg.draw()
         daG.draw()
         myWin.flip()
 
@@ -250,7 +258,7 @@ if __name__ == '__main__':
                 daG.whileMouseDown()
 
                 # draw image, say
-                # image.draw()
+                myImg.draw()
 
                 # draw gague figure
                 daG.draw()
@@ -261,7 +269,7 @@ if __name__ == '__main__':
             # (theta, phi) = daG.handleMouseDown()
             (theta, phi) = daG.stopMouseDown()
             print theta, phi
-            
+
         else:
             continue
 
